@@ -1,0 +1,69 @@
+﻿<Window x:Class="OOP_Kurs.AddTourWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OOP_Kurs"
+		xmlns:models="clr-namespace:OOP_Kurs.Models"
+        mc:Ignorable="d"
+        Title="AddTourWindow" Height="355.536" Width="656.032" ResizeMode="NoResize">
+
+	<Grid>
+		<Label Content="_Tour Type:" HorizontalAlignment="Left" Margin="22,10,0,0" VerticalAlignment="Top"/>
+
+		<Button x:Name="SearchButton" Content="_Search" HorizontalAlignment="Left" Margin="356,14,0,0" VerticalAlignment="Top" Width="75" Click="SearchButton_Click"/>
+		<TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Height="23" Margin="191,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+
+		<Label Content="_Id:" HorizontalAlignment="Left" Margin="457,58,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.243,0.156"/>
+		<TextBox Name="IDTextBox" HorizontalAlignment="Left" Height="23" Margin="457,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="160" RenderTransformOrigin="0.727,1.204" IsReadOnly="True" Background="#FFD4D1D1"/>
+		<Label Content="Start _Time:" HorizontalAlignment="Left" Margin="457,206,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.243,0.156"/>
+		<TextBox Name="StartTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="457,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" RenderTransformOrigin="0.727,1.204" TextChanged="StartTimeTextBox_TextChanged"/>
+
+		<Label Content="_Start Date:" HorizontalAlignment="Left" Margin="457,115,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.243,0.156"/>
+		<DatePicker Name="StartDatePicker" HorizontalAlignment="Left" Margin="457,140,0,0" VerticalAlignment="Top" Width="160" SelectedDateChanged="StartDatePicker_SelectedDateChanged" Focusable="False">
+			<DatePicker.Resources>
+				<Style TargetType="DatePickerTextBox">
+					<Setter Property="IsReadOnly" Value="True"/>
+				</Style>
+			</DatePicker.Resources>
+		</DatePicker>
+
+		<Button Name="SubmitButton" Content="S_ubmit" HorizontalAlignment="Left" Margin="457,285,0,0" VerticalAlignment="Top" Width="75" Click="SubmitButton_Click"/>
+		<Button Name="CancelButton" Content="_Cancel" HorizontalAlignment="Left" Margin="553,285,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.944,0.622" Click="CancelButton_Click"/>
+
+		<Button Name="NewTourTypeButton" Content="_New Tour Type" HorizontalAlignment="Left" Margin="22,289,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
+
+		<DataGrid Name="TourTypeGridView" AutoGenerateColumns="False" HorizontalAlignment="Left" SelectionMode="Single" CanUserReorderColumns="False" RowHeaderWidth="20" AlternatingRowBackground="#FFF0F0F0"
+				RowDetailsVisibilityMode="VisibleWhenSelected" Height="243" Margin="22,41,0,0" VerticalAlignment="Top" Width="413" PreviewKeyDown="TourTypeGridView_PreviewKeyDown" SelectionChanged="TourTypeGridView_SelectionChanged">
+
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="ID"					Binding="{Binding Id}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Name"				Binding="{Binding Name}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Duration(Hours)"	Binding="{Binding DurationHours}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Price"				Binding="{Binding PriceString}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Max Participants"	Binding="{Binding MaxParticipants}" IsReadOnly="True"/>
+			</DataGrid.Columns>
+
+			<DataGrid.RowDetailsTemplate>
+				<DataTemplate>
+					<Border Background="#FFF6F6F6" Padding="10">
+						<Grid Margin="5, 0, 0, 0" MinHeight="80" HorizontalAlignment="Left">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="300"/>
+							</Grid.ColumnDefinitions>
+
+							<Grid.RowDefinitions>
+								<RowDefinition Height="24"/>
+								<RowDefinition Height="76"/>
+							</Grid.RowDefinitions>
+
+							<Label Content="Sites:" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" />
+							<ListBox IsManipulationEnabled="False" HorizontalAlignment="Left" Width="300" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding SiteList}"/>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</DataGrid.RowDetailsTemplate>
+		</DataGrid>
+		<Label Content="Note: Start Date has to be at least&#xD;&#xA;one day after current date" HorizontalAlignment="Left" Margin="457,169,0,0" VerticalAlignment="Top" Width="171" FontSize="10" Height="37"/>
+	</Grid>
+</Window>

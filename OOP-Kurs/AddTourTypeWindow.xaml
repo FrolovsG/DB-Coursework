@@ -1,0 +1,54 @@
+﻿<Window x:Class="OOP_Kurs.AddTourTypeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OOP_Kurs"
+		xmlns:models="clr-namespace:OOP_Kurs.Models"
+        mc:Ignorable="d"
+        Title="AddTourType" Height="{Binding CustomHeight, Mode=TwoWay}" Width="563.69" ResizeMode="NoResize">
+	<Grid>
+
+		<ListBox Name="SiteListBox" SelectionMode="Extended" HorizontalAlignment="Left" Height="235" Margin="23,43,0,0" VerticalAlignment="Top" Width="293" SelectionChanged="SiteListBox_SelectionChanged"/>
+		<Label Content="_Sites:" HorizontalAlignment="Left" Margin="23,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.35,0.419"/>
+		<TextBox Name="SearchTextBox" HorizontalAlignment="Left" Height="23" Margin="23,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="293" TextChanged="SearchTextBox_TextChanged"/>
+
+		<TextBox Name="IDTextBox" HorizontalAlignment="Left" Height="23" Margin="348,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" RenderTransformOrigin="0.727,1.204" IsReadOnly="True" Background="#FFD4D1D1"/>
+		<Label  Content="Id:" HorizontalAlignment="Left" Margin="348,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.243,0.156"/>
+
+		<TextBox Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="348,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" TextChanged="NameTextBox_TextChanged"/>
+		<Label Content="_Name:" HorizontalAlignment="Left" Margin="348,79,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.243,0.156"/>
+
+		<TextBox Name="PriceTextBox" HorizontalAlignment="Left" Height="23" Margin="348,166,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" TextChanged="PriceTextBox_TextChanged"/>
+		<Label Content="_Price:" HorizontalAlignment="Left" Margin="348,140,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.243,0.156"/>
+
+		<TextBox Name="MaxParticipantsTextBox" HorizontalAlignment="Left" Height="23" Margin="348,220,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" TextChanged="MaxParticipantsTextBox_TextChanged" />
+		<Label Content="_Max Participants:" HorizontalAlignment="Left" Margin="348,194,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.243,0.156"/>
+
+		<TextBox x:Name="DurationTextBox" HorizontalAlignment="Left" Height="23" Margin="348,274,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" TextChanged="DurationTextBox_TextChanged" />
+		<Label Content="_Duration (Hours):" HorizontalAlignment="Left" Margin="348,248,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.243,0.156"/>
+
+		<Button Name="SubmitButton" Content="S_ubmit" HorizontalAlignment="Left" Margin="331,306,0,0" VerticalAlignment="Top" Width="75" Click="SubmitButton_Click"/>
+		<Button Name="CancelButton" Content="_Cancel" HorizontalAlignment="Left" Margin="433,306,0,0" VerticalAlignment="Top" Width="75" Click="CancelButton_Click"/>
+
+		<Button Name="NewSiteButton" Content="New Site" HorizontalAlignment="Left" Margin="23,306,0,0" VerticalAlignment="Top" Width="75" Click="NewSiteButton_Click"/>
+
+		<Grid Name="SiteGrid" HorizontalAlignment="Left" Height="160" Margin="0,349,0,-2" VerticalAlignment="Top" Width="558">
+
+			<TextBox Name="SiteNameTextBox" HorizontalAlignment="Left" Height="23" Margin="33,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" TextChanged="SiteNameTextBox_TextChanged"/>
+			<Label Content="Site Name:" HorizontalAlignment="Left" Margin="33,25,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.243,0.156"/>
+
+			<TextBox Name="AddressTextBox" HorizontalAlignment="Left" Height="23" Margin="33,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"/>
+			<Label Content="_Address:" HorizontalAlignment="Left" Margin="33,88,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.243,0.156"/>
+
+			<Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="33,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="496"/>
+
+			<TextBox Name="QualityTextBox" HorizontalAlignment="Left" Height="23" Margin="335,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" TextChanged="QualityTextBox_TextChanged"/>
+			<Label Content="_Rating (from 0 to 10):" HorizontalAlignment="Left" Margin="335,25,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.243,0.156"/>
+
+			<Button Name="SubmitSiteButton" Content="Submit Site" HorizontalAlignment="Left" Margin="322,114,0,0" VerticalAlignment="Top" Width="75" Click="SubmitSiteButton_Click"/>
+			<Button x:Name="HideButton" Content="_Hide" HorizontalAlignment="Left" Margin="420,115,0,0" VerticalAlignment="Top" Width="75" Click="HideButton_Click"/>
+
+		</Grid>
+	</Grid>
+</Window>

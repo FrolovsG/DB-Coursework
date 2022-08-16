@@ -1,0 +1,59 @@
+﻿<Window x:Class="OOP_Kurs.GuideViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OOP_Kurs"
+		xmlns:models="clr-namespace:OOP_Kurs.Models"
+        mc:Ignorable="d"
+        Title="GuideViewWindow" Height="480.63" Width="759.975" ResizeMode="NoResize">
+
+	<Grid>
+		<Button x:Name="SearchButton" Content="_Search" HorizontalAlignment="Left" Margin="657,21,0,0" VerticalAlignment="Top" Width="75" Click="SearchButton_Guides_Click"/>
+		<TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Height="23" Margin="481,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+
+		<Button Name="AssignToTourButton" Content="Assign/Unassign&#xD;&#xA; Selected Guide&#xD;&#xA;       To Tour" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="19,246,0,0" VerticalAlignment="Top" Width="120" Click="AssignToTourButton_Click" Height="59"/>
+		<Button x:Name="AddGuideButton" Content="_New Guide" HorizontalAlignment="Left" Margin="19,322,0,0" VerticalAlignment="Top" Width="120" Click="AddGuideButton_Click"/>
+		<Button x:Name="ReturnButton_Clients" Content="_Return" HorizontalAlignment="Left" Margin="19,393,0,0" VerticalAlignment="Top" Width="120" Click="ReturnButton_Clients_Click"/>
+
+		<DataGrid x:Name="GuideGridView" SelectionMode="Single" CanUserResizeRows="False" CanUserReorderColumns="False" RowHeaderWidth="20" AlternatingRowBackground="#FFF0F0F0" RowDetailsVisibilityMode="VisibleWhenSelected" HorizontalAlignment="Left" Height="356" Margin="160,61,0,0" VerticalAlignment="Top" Width="575" Background="#FFC9C6C6" AutoGenerateColumns="False" PreviewKeyDown="GuideGridView_PreviewKeyDown" SelectionChanged="GuideGridView_SelectionChanged">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="ID" Binding="{Binding Id}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Name"			Binding="{Binding Name}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="Surname"		Binding="{Binding Surname}" IsReadOnly="True"/>
+				<DataGridTextColumn Header="ID Code"		Binding="{Binding IDCode}" IsReadOnly="True"/>
+				<DataGridCheckBoxColumn Header="Available"	Binding="{Binding IsAvailable}" CanUserResize="False"/>
+
+				<DataGridTemplateColumn Header="Birth Date">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<DatePicker SelectedDate="{Binding BirthDate}">
+								<DatePicker.Resources>
+									<Style TargetType="DatePickerTextBox">
+										<Setter Property="IsReadOnly" Value="True"/>
+									</Style>
+								</DatePicker.Resources>
+							</DatePicker>
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+
+				<DataGridTemplateColumn Header="Employment Date">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<DatePicker SelectedDate="{Binding EmploymentDate}">
+								<DatePicker.Resources>
+									<Style TargetType="DatePickerTextBox">
+										<Setter Property="IsReadOnly" Value="True"/>
+									</Style>
+								</DatePicker.Resources>
+							</DatePicker>
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
+
+			</DataGrid.Columns>
+
+		</DataGrid>
+	</Grid>
+</Window>
